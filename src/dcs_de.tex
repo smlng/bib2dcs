@@ -19,7 +19,7 @@
 %%Type#Author#Title#Pages#Month#Year#Publisher#Keywords#Abstract#URL#ISBN#Refno#Contact#Reporttype
 \usepackage{datatool}
 \DTLsetseparator{;}
-\DTLloaddb{data}{input2.csv}
+\DTLloaddb{data}{input.csv}
 %%%%%% GLOBAL CONTACT INFOS %%%%%%
 %% Sponsoring agency contact
 \newcommand{\sname}{\mbox{Bundesministerium für Bildung}}
@@ -37,7 +37,7 @@
 %
     \DTLforeach{data}{
         \insertType=Type,
-        \insertAuthors=Authors,
+        \insertAuthors=Author,
         \insertTitle=Title,
         \insertPages=Pages,
         \insertMonth=Month,
@@ -46,10 +46,7 @@
         \insertKeywords=Keywords,
         \insertAbstract=Abstract,
         \insertURL=URL,
-        \insertISBN=ISBN,
-        \insertRefno=Refno,
-        \insertContact=Contact,
-        \insertReporttype=Reporttype}
+        \insertISBN=ISBN}
     {
         \clearpage
         \thispagestyle{empty}
