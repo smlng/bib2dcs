@@ -6,7 +6,7 @@
 \usepackage{array}
 \renewcommand{\arraystretch}{1.15}
 \usepackage[vlines]{tabularht}
-\usepackage[a4paper,bottom=2.2cm,top=1.2cm,right=2.2cm,left=2.2cm]{geometry}
+\usepackage[a4paper,bottom=0.5cm,top=1.2cm,right=2.2cm,left=2.2cm]{geometry}
 \usepackage{url}
 % use Sans-Serif and Arial font everywhere
 %\renewcommand{\familydefault}{\sfdefault}
@@ -53,7 +53,7 @@
         \section*{Anlage 4 zum Schlussbericht: Berichtsblatt für Publikationen}
         {
             \footnotesize
-            \begin{tabularht*}{0.96\textheight}{0.9775\textwidth}{|p{0.32\textwidth}|p{0.32\textwidth}|p{0.32\textwidth}|}
+            \begin{tabularht*}{0.91\textheight}{0.9775\textwidth}{|p{0.32\textwidth}|p{0.32\textwidth}|p{0.32\textwidth}|}
                 \cline{1-3}
                 1. ISBN oder ISSN & \multicolumn{2}{p{0.64\textwidth}|}{2. Berichtsart} \\
                 \insertISBN & \multicolumn{2}{p{0.64\textwidth}|}{\reporttype} \\
@@ -122,6 +122,13 @@
                 \multicolumn{2}{|p{0.64\textwidth}|}{20. Verlag} & 21. Preis \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{\insertPublisher} &  \\
                 \cline{1-3}
+            \end{tabularht*}
+
+            \begin{tabularht*}{0.05\textheight}{0.97\textwidth}{p{0.23\textwidth}p{0.23\textwidth}p{0.23\textwidth}p{0.23\textwidth}}
+            \multicolumn{4}{p{0.92\textwidth}}{} \\
+            \interrowfill[0]
+            \multicolumn{4}{p{0.92\textwidth}}{} \\
+            \multicolumn{3}{p{0.69\textwidth}}{} & \hfill $\overline{\text{\bf{BMBF-Vordr.\ 3831/03.99}}}$ \\
             \end{tabularht*}
         }
         \newpage
