@@ -29,8 +29,8 @@ export BIBFILES="name1 [name2 [name3 [...]]]"
 cd src
 ./get_bibitems.sh /path/to/report.bbl > input.bib
 perl bib2csv.pl input.bib > input.csv
-lualatex dcs_de.tex
-lualatex dcs_de.tex
+lualatex berichtsblatt.tex
+lualatex berichtsblatt.tex
 ```
 
-This will generate `dcs_de.pdf` containing all publications.
+This will generate `berichtsblatt.pdf` containing all publications.
