@@ -37,7 +37,7 @@ while ($entry = new Text::BibTeX::Entry $bibfile)
 
 # sort entries with decending years
 @entry = reverse sort {$a->get('year') cmp $b->get('year')} @entry;
-print "Type;;Author;;Title;;Pages;;Month;;Year;;Publisher;;Keywords;;Abstract;;URL;;ISBN\n";
+print "Type;;Author;;Title;;Pages;;Month;;Year;;Publisher;;PubAt;;Location;;Keywords;;Abstract;;URL;;ISBN\n";
 foreach $entry (@entry) {
     $type = $entry->type;
     # convert to lowercase
@@ -55,6 +55,10 @@ foreach $entry (@entry) {
     if (length($pages) > 0) {
         @pp = split(/-/, $pages);
         $pages = $pp[-1]-$pp[0]+1;
+    }
+    $numpages = $entry->get('numpages');
+    if (length($numpages) > 0) {
+        $pages = $numpages;
     }
     $month = month_long_de($entry->get('month'));
     $year = $entry->get('year');
@@ -75,17 +79,32 @@ foreach $entry (@entry) {
         $ttt .= $types{$themetmp};
     }
     $theme = $ttt;
-
+    $location = $entry->get('location');
+    if (length($location) > 0) { $location .= ", "; } else { $location = ""; }
+    $pubat = "";
     if($type eq "techreport" && $entry->exists('type')) {
       $type = $entry->get('type');
+      $pubat = $entry->get('institution');
     }
-    elsif($type eq "inproceedings") { $type = "Konferenzbeitrag"; }
-    elsif($type eq "incollection") { $type = "Buchkapitel"; }
-    elsif($type eq "article") { $type = "Journalbeitrag"; }
-    elsif($type eq "proceedings") { $type = "Konferenzband"; }
+    elsif($type eq "inproceedings") {
+        $type = "Konferenzbeitrag";
+        $pubat = $entry->get('booktitle');
+    }
+    elsif($type eq "incollection") {
+        $type = "Buchkapitel";
+        $pubat = $entry->get('booktitle');
+    }
+    elsif($type eq "article") {
+        $type = "Journalbeitrag";
+        $pubat = $entry->get('journal');
+    }
+    elsif($type eq "proceedings") {
+        $type = "Konferenzband";
+        $pubat = $entry->get('booktitle');
+    }
     elsif($type eq "misc") { $type = "Konferenzbeitrag"; }
     elsif($type eq "phdthesis") { $type = "Doktorarbeit"; }
-    print "$type;;$author;;$title;;$pages;;$month;;$year;;$publisher;;$theme;;$abstract;;$url;;$isbn\n";
+    print "$type;;$author;;$title;;$pages;;$month;;$year;;$publisher;;$pubat;;$location;;$theme;;$abstract;;$url;;$isbn\n";
 }
 
 # function to translate month into german long names
