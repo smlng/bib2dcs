@@ -37,7 +37,7 @@ while ($entry = new Text::BibTeX::Entry $bibfile)
 
 # sort entries with decending years
 @entry = reverse sort {$a->get('year') cmp $b->get('year')} @entry;
-print "Type;Author;Title;Pages;Month;Year;Publisher;Keywords;Abstract;URL;ISBN\n";
+print "Type;;Author;;Title;;Pages;;Month;;Year;;Publisher;;Keywords;;Abstract;;URL;;ISBN\n";
 foreach $entry (@entry) {
     $type = $entry->type;
     # convert to lowercase
@@ -85,7 +85,7 @@ foreach $entry (@entry) {
     elsif($type eq "proceedings") { $type = "Konferenzband"; }
     elsif($type eq "misc") { $type = "Konferenzbeitrag"; }
     elsif($type eq "phdthesis") { $type = "Doktorarbeit"; }
-    print "$type;$author;$title;$pages;$month;$year;$publisher;$theme;$abstract;$url;$isbn\n";
+    print "$type;;$author;;$title;;$pages;;$month;;$year;;$publisher;;$theme;;$abstract;;$url;;$isbn\n";
 }
 
 # function to translate month into german long names

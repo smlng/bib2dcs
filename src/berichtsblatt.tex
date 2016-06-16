@@ -19,20 +19,20 @@
 %%%%% DATA STUFF %%%%%
 %%Type#Author#Title#Pages#Month#Year#Publisher#Keywords#Abstract#URL#ISBN#Refno#Contact#Reporttype
 \usepackage{datatool}
-\DTLsetseparator{;}
+\DTLsetseparator{;;}
 \DTLloaddb{data}{input.csv}
 %
 %%%%%% GLOBAL CONTACT INFOS %%%%%%
 %% Sponsoring agency contact
-\newcommand{\sname}{\mbox{Bundesministerium für Bildung}}
-\newcommand{\sextra}{\mbox{und Forschung (BMBF)}}
-\newcommand{\saddr}{\mbox{53170 Bonn}}
+\newcommand{\sname}{\mbox{\large Bundesministerium für Bildung}}
+\newcommand{\sextra}{\mbox{\large und Forschung (BMBF)}}
+\newcommand{\saddr}{\mbox{\large 53170 Bonn}}
 %% Performing organization contact
-\newcommand{\pname}{\mbox{Prof.Dr. Thomas C. Schmidt}}
+\newcommand{\pname}{\mbox{Prof. Dr. Thomas C. Schmidt}}
 \newcommand{\pextra}{\mbox{AG INET, Dept. Informatik, HAW Hamburg}}
 \newcommand{\paddr}{\mbox{Berliner Tor 7, 20099 Hamburg}}
 %% sponsoring reference number
-\newcommand{\srefno}{\mbox{13N12236}}
+\newcommand{\srefno}{\mbox{16BY1203B}}
 \newcommand{\reporttype}{\mbox{Veröffentlichung}}
 %
 %%%%% BEGIN DOCUMENT %%%%%
@@ -62,44 +62,31 @@
                 1. ISBN oder ISSN & \multicolumn{2}{p{0.64\textwidth}|}{2. Berichtsart} \\
                 \insertISBN & \multicolumn{2}{p{0.64\textwidth}|}{\reporttype} \\
                 \cline{1-3}
-                \multicolumn{3}{|p{0.96\textwidth}|}{3a. Titel des Berichts} \\
-                \multicolumn{3}{|p{0.96\textwidth}|}{} \\
-                \multicolumn{3}{|p{0.96\textwidth}|}{} \\
-                \multicolumn{3}{|p{0.96\textwidth}|}{} \\
-                \cline{1-3}
-                \multicolumn{3}{|p{0.96\textwidth}|}{3b. Titel der Publikation} \\
+                \multicolumn{3}{|p{0.96\textwidth}|}{3. Titel} \\
                 \multicolumn{3}{|p{0.96\textwidth}|}{} \\
                 \multicolumn{3}{|p{0.96\textwidth}|}{\insertTitle} \\
                 \multicolumn{3}{|p{0.96\textwidth}|}{} \\
                 \cline{1-3}
-                \multicolumn{2}{|p{0.64\textwidth}|}{4a. Autoren des Berichts (Name, Vorname(n))} & 5. Abschlussdatum des Vorhabens \\
+                \multicolumn{2}{|p{0.64\textwidth}|}{4. Autor(en) [Name(n), Vorname(n)]} & 5. Abschlussdatum des Vorhabens \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{} & \\ \cline{3-3}
                 \multicolumn{2}{|p{0.64\textwidth}|}{} & 6. Veröffentlichungsdatum \\
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & \insertMonth \ \insertYear \\
-                \cline{1-2}
-                \multicolumn{2}{|p{0.64\textwidth}|}{4b. Autoren der Publikation (Name, Vorname(n))} &  \\ \cline{3-3}
+                \multicolumn{2}{|p{0.64\textwidth}|}{\insertAuthors} & \insertMonth \ \insertYear\  \phantom{Xx xx xx xx xx}\ \phantom{Xx xx xx xx xx}\ \phantom{Xx xx xx xx}\ \\\cline{3-3}
                 \multicolumn{2}{|p{0.64\textwidth}|}{} &  7. Form der Publikation\\
-                \multicolumn{2}{|p{0.64\textwidth}|}{\insertAuthors} & \insertType\  \phantom{Xx xx xx xx xx}\ \phantom{Xx xx xx xx xx}\ \phantom{Xx xx xx xx}\  \\
+                \multicolumn{2}{|p{0.64\textwidth}|}{} & \insertType  \\
                 \cline{1-3}
                 \multicolumn{2}{|p{0.64\textwidth}|}{8. Durchführende Institution(en) (Name, Adresse)} & 9. Ber. Nr. Durchführende Institution \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{} & \\ \cline{3-3}
                 \multicolumn{2}{|p{0.64\textwidth}|}{\pname} & 10. Förderkennzeichen \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{\pextra} & \srefno \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{\paddr} & \\ \cline {3-3}
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & 11a. Seitenzahl Bericht\\
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & \\ \cline {3-3}
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & 11b. Seitenzahl Publikation\\
+                \multicolumn{2}{|p{0.64\textwidth}|}{} & 11. Seitenzahl\\
                 \multicolumn{2}{|p{0.64\textwidth}|}{} & \insertPages \\
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & \\
                 \cline{1-3}
                 \multicolumn{2}{|p{0.64\textwidth}|}{13. Fördernde Institution(en) (Name, Adresse)} & 12. Literaturangaben \\
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{} & \\ \cline{3-3}
                 \multicolumn{2}{|p{0.64\textwidth}|}{\sname} & 14. Tabellen \\
-                \multicolumn{2}{|p{0.64\textwidth}|}{\sextra} & \\
-                \multicolumn{2}{|p{0.64\textwidth}|}{\saddr} & \\ \cline {3-3}
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & 15. Abbildungen \\
-                \multicolumn{2}{|p{0.64\textwidth}|}{} & \\
+                \multicolumn{2}{|p{0.64\textwidth}|}{\sextra} & \\ \cline {3-3}
+                \multicolumn{2}{|p{0.64\textwidth}|}{\saddr} & 15. Abbildungen \\
                 \multicolumn{2}{|p{0.64\textwidth}|}{} & \\
                 \cline{1-3}
                 \multicolumn{3}{|p{0.96\textwidth}|}{16. Zusätzliche Angaben} \\
