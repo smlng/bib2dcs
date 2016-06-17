@@ -101,6 +101,7 @@ foreach $entry (@entry) {
     elsif($type eq "proceedings") {
         $type = "Konferenzband";
         $pubat = $entry->get('booktitle');
+        if (length($pubat) < 1) { $pubat = $entry->get('institution'); }
     }
     elsif($type eq "misc") { $type = "Konferenzbeitrag"; }
     elsif($type eq "phdthesis") { $type = "Doktorarbeit"; }
